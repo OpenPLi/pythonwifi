@@ -256,13 +256,14 @@ class Wireless(object):
             return "%0.3f MHZ" % (raw_frequency/MEGA)
         if raw_frequency >= KILO:
             return "%0.3f kHz" % (raw_frequency/KILO)
-        # This is probably a channel number
-        raw_frequency = int(raw_frequency)
-        try:
-            return self.getChannelInfo()[1][raw_frequency-1]
-        except IndexError:
-            # probably auto (i.e. -1 (a.k.a. 255))
-            pass
+        if raw_frequency > 0:
+          # This is probably a channel number
+          raw_frequency = int(raw_frequency)
+          try:
+              return self.getChannelInfo()[1][raw_frequency-1]
+          except IndexError:
+              # probably auto (i.e. -1 (a.k.a. 255))
+              pass
         return raw_frequency
 
     def getChannelInfo(self):
