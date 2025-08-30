@@ -19,13 +19,13 @@
 #    USA
 
 modes = ['Auto',
-         'Ad-Hoc',
-         'Managed',
-         'Master',
-         'Repeat',
-         'Second',
-         'Monitor',
-         'Unknown/bug']
+		 'Ad-Hoc',
+		 'Managed',
+		 'Master',
+		 'Repeat',
+		 'Second',
+		 'Monitor',
+		 'Unknown/bug']
 
 IFNAMSIZE = 16
 IW_ESSID_MAX_SIZE = 32
