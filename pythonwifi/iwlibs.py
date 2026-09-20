@@ -1032,6 +1032,7 @@ class Iwstruct(object):
 	def iw_get_ext(self, ifname, request, data=None):
 		""" Read information from ifname. """
 		buff = pythonwifi.flags.IFNAMSIZE-len(ifname)
+		if isinstance(ifname, str): ifname = ifname.encode()
 		ifreq = array.array('B', ifname + b'\0'*buff)
 		# put some additional data behind the interface name
 		if data is not None:
